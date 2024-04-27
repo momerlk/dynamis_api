@@ -1,0 +1,67 @@
+{
+    "users" : [
+        {
+            "username" : "omer",
+            "learning_style" : "null",
+            "metrics" : {
+
+                "engagement" : 0,
+                "time_spent" : 0,
+                "modules_completed" : 0,
+                "tests_taken" : 0,
+
+                "visual" : {
+                    "time_spent" : 0,
+
+                    "switches" : 0
+                },
+                "text" : {
+                    "score" : 0,
+                    "switches" : 0
+                },
+                "coding" : {
+                    "score" : 0,
+                    "time_spent" : 0,
+                    "execution_frequency" : 0,
+                    "number_of_lines" : 0,
+                    "number_of_edits" : 0,
+                    "switches" : 0
+                },
+                "tests" : {
+                    "completion_rate" : 0,
+                    "average_scores" : 0
+                }
+            },
+            "courses" : [
+                {"title" : "algorithms", "modules" : [
+                    {
+                        "title" : "introduction to algorithms",
+                        "learning_style" : "visual",
+                        "test_score" : 0.8,
+                        "completed_questions" : 0,
+                        "engagement_rate" : 0
+                    }
+                ]}
+            ]
+        }
+    ],
+
+    "courses" : [ 
+        {
+            "title" : "algorithms",
+            "modules" : [
+                {
+                    "title" : "introduction to algorithms",
+                    "video" : "https://www.youtube.com/embed/rL8X2mlNHPM?si=_s3sHIVzFT3DHyrD",
+                    "animations" : ["https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg7EPhoHc-CwFmkioHC4ZUz1zlLgnotzXfkF44ZcFd9Jsunlki6tMM-DAjVBSMK8G-nZLQf7PTZcXNPOYdtK7joJpLduio99KF1IVwldaHm4HX8F9B4X4vgep_79PSLCc7DpKUCQ-XGo7p9/s1600/min_complexity.gif"], 
+                    
+                    "image" : "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20230726161506/Data-structure-algorithm-%E2%80%93-1-3.png", 
+                    "text" : "",
+                    
+                    "flowchart" : "https://miro.medium.com/v2/resize:fit:1400/1*xq73u1N7ZsTE2MJ9jsj0CA.png",
+                    "code_snippet" : ""
+                }
+            ]
+        }
+    ]
+}
