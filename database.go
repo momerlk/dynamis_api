@@ -1,13 +1,14 @@
 package main
 
 import (
-    "context"
-    "log"
-    "time"
+	"context"
+	"log"
+	"time"
 
-    "go.mongodb.org/mongo-driver/bson"
-    "go.mongodb.org/mongo-driver/mongo"
-    "go.mongodb.org/mongo-driver/mongo/options"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 // User model
@@ -139,75 +140,3 @@ func UpdateUser(userID primitive.ObjectID, update bson.M) error {
     return nil
 }
 
-// Course CRUD functions...
-
-func main() {
-    // Connect to MongoDB
-    connectDB()
-    defer closeDB()
-
-    // Example usage
-    user := User{
-        Username:      "omer",
-        LearningStyle: "null",
-        Metrics: struct {
-            Engagement        int
-            TimeSpent         int
-            ModulesCompleted  int
-            TestsTaken        int
-            Visual            struct {
-                TimeSpent int
-                Switches  int
-            }
-            Text struct {
-                Score    int
-                Switches int
-            }
-            Coding struct {
-                Score              int
-                TimeSpent          int
-                ExecutionFrequency int
-                NumberOfLines      int
-                NumberOfEdits      int
-                Switches           int
-            }
-            Tests struct {
-                CompletionRate int
-                AverageScores  int
-            }
-        }{},
-        Courses: []Course{
-            {
-                Title: "algorithms",
-                Modules: []Module{
-                    {
-                        Title:       "introduction to algorithms",
-                        LearningStyle: "visual",
-                        TestScore:      0.8,
-                        CompletedQuestions: 0,
-                        EngagementRate: 0,
-                    },
-                },
-            },
-        },
-    }
-
-    // Insert the user into the database
-    err := CreateUser(user)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Get the user from the database
-    retrievedUser, err := GetUser(user.ID)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Update the user's metrics
-    update := bson.M{"$set": bson.M{"metrics.engagement": 10}}
-    err = UpdateUser(retrievedUser.ID, update)
-    if err != nil {
-        log.Fatal(err)
-    }
-}
